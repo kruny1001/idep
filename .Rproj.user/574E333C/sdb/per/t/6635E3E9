@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(plumber)\nr <- plumb(\"plumberImp.R\")  # Where 'myfile.R' is the location of the file shown above\nr$run(port=8000)",
+    "created" : 1494359527286.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3995800055",
+    "id" : "6635E3E9",
+    "lastKnownWriteTime" : 1494359248,
+    "last_content_update" : 1494359248,
+    "path" : "~/Desktop/idep/plumberServer.R",
+    "project_path" : "plumberServer.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

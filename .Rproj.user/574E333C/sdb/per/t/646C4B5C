@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\nsource('classes/librarySetup.R', echo=T)\nsource('classes/DataClass.R', echo=T)\n\n#* @get /mean\nnormalMean <- function(samples=10){\n  data <- rnorm(samples)\n  mean(data)\n}\n\n\n#* Get a graph of the values\n#* @get /plots\nplots <- function(){\n  # load data\n  dataObj <- DataClass$new(filePath=\"GSE37704_sailfish_genecounts.csv\")\n  localData = dataObj$data\n  #colsToSum <- names(localData[,-1])\n  dt2 = localData[, lapply(.SD, sum, na.rm=TRUE), .SDcols=colsToSum]\n  #barplot( as.matrix(dt2/1e6), col=\"green\",las=3, main=\"Total read counts (millions)\")\n  #plot(1:10, 1:10, main=\"test\")\n  \n  list(result =as.matrix(dt2/1e6))\n}\n",
+    "created" : 1494359252012.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2805704688",
+    "id" : "646C4B5C",
+    "lastKnownWriteTime" : 1494360333,
+    "last_content_update" : 1494360333782,
+    "path" : "~/Desktop/idep/plumberImp.R",
+    "project_path" : "plumberImp.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

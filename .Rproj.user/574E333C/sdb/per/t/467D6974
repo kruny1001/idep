@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "list.of.packages <- c(\"shiny\", \"shinyAce\", \"shinyBS\",  \"RSQLite\", \"gplots\", \"ggplot2\", \"e1071\", \"reshape2\", \n                   \"DT\", \"plotly\", \"limma\", \"DESeq2\", \"edgeR\", \"gage\", \"PGSEA\", \"fgsea\",\n                   \"ReactomePA\", \"pathview\", \"PREDA\", \"PREDAsampledata\", \"sfsmisc\", \"lokern\",\n                   \"multtest\", \"data.table\")\n\nlist.of.bio.packages  <- c(\"limma\", \"DESeq2\", \"edgeR\", \"gage\", \"PGSEA\", \"fgsea\",\n                           \"ReactomePA\", \"pathview\", \"PREDA\", \"PREDAsampledata\", \"sfsmisc\", \"lokern\",\n                           \"multtest\")\n#Install Require packages\nnew.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,\"Package\"])]\nif(length(new.packages)) install.packages(new.packages)\n\nnew.bio.packages <- list.of.bio.packages[!(list.of.bio.packages %in% installed.packages()[,\"Package\"])]\nif(length(list.of.bio.packages)){\n  source(\"https://bioconductor.org/biocLite.R\")\n  biocLite(new.bio.packages, suppressUpdates = T)\n} \n\n#Load Packages\nlapply(list.of.packages, require, character.only = TRUE)\nlapply(list.of.bio.packages, require, character.only = TRUE)\n\nsessionInfo()\n\n#library(shiny)\n#runGist(3239667)\n#runGist(\"https://gist.github.com/jcheng5/3239667\")\n",
+    "created" : 1494273754916.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3535492563",
+    "id" : "467D6974",
+    "lastKnownWriteTime" : 1494360952,
+    "last_content_update" : 1494360952029,
+    "path" : "~/Desktop/idep/classes/librarySetup.R",
+    "project_path" : "classes/librarySetup.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

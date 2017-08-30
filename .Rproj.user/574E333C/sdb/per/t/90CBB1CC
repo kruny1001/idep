@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "## DataClass\n# library(\"data.table\")\n\nDataClass <- setRefClass(\"DataClass\",\n  fields = list(\n    data = \"data.table\",\n    train = \"data.table\",\n    test = \"data.table\"\n  ),\n  methods = list(\n    initialize = function(filePath){\n      print(\"DataClass is initiated\")\n      demoDataFile = filePath\n      .self$data = data.table(read.csv(demoDataFile))\n    },\n    finalize = function(){\n      print(\"DataClass is terminated\")\n    }\n  )\n)\n\n?plot\n",
+    "created" : 1494274439953.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1950969337",
+    "id" : "90CBB1CC",
+    "lastKnownWriteTime" : 1494360212,
+    "last_content_update" : 1494360212430,
+    "path" : "~/Desktop/idep/classes/DataClass.R",
+    "project_path" : "classes/DataClass.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

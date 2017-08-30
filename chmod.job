@@ -1,0 +1,2 @@
+chmod 775 . -R
+echo "Please change the working directory in server.R file "

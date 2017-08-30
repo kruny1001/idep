@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "source('classes/librarySetup.R', echo=F)\nsource('classes/DataClass.R', echo=F)\n\npdf(NULL) # this prevents error Cannot open file 'Rplots.pdf'\nMin_overlap <- 2\nminSetSize = 3;\nmappingCoverage = 0.60 # 60% percent genes has to be mapped for confident mapping\nmappingEdge = 0.5  # Top species has 50% more genes mapped\nPvalGeneInfo = 0.05; minGenes = 10 # min number of genes for ploting\nkurtosis.log = 50  # log transform is enforced when kurtosis is big\nkurtosis.warning = 10 # log transformation recommnded\nminGenesEnrichment = 2 # perform GO or promoter analysis only if more than this many genes\nPREDA_Permutations =1000\n\n#sqlite  <- dbDriver(\"SQLite\")\n#convert <- dbConnect(sqlite,\"../go/convertIDs.db\")\n#set.seed(2)\nmycolors = sort(rainbow(20))[c(1,20,10,11,2,19,3,12,4,13,5,14,6,15,7,16,8,17,9,18)] # 20 colors for kNN clusters\n#keggSpeciesID = read.csv(\"KEGG_Species_ID.csv\")\n#dim(keggSpeciesID)\n#str(keggSpeciesID)\n\n# load data\ndataObj <- DataClass$new(filePath=\"GSE37704_sailfish_genecounts.csv\")\ndataObj$data\n\n# Pre-Process\ncolsToSum <- names(dataObj$data[,-1])\ndt2 = dataObj$data[, lapply(.SD, sum, na.rm=TRUE), .SDcols=colsToSum]\nbarplot( as.matrix(dt2/1e6), col=\"green\",las=3, main=\"Total read counts (millions)\")\n\n## EDA -  required data transform \n# Distribution of transformed Data \n## TODO: transform data \n\ncolors = dim(dataObj$data)[2]\nmyColors = rainbow(colors)\nstartedLog = 2\nx = log(dataObj$data[,-1]+abs(startedLog),2)\nx = as.data.frame(x)\ntem <- apply(x,1,sd)\nx <- x[order(-tem),]  # sort by SD\n\n\npar(mfrow=c(3,1))\nplot(density(x[,1]),col = myColors[1],xlab=\"Expresson values\", ylab=\"Density\", main= \"Distribution of transformed data\")\nfor( i in 2:dim(x)[2] ){\n  lines(density(as.matrix(x[,i])),col=myColors[i] )\n}\npng(\"r.png\", width=10, height=5)\nboxplot(x, las = 2, ylab=\"Transformed expression levels\", main=\"Distribution of transformed data\")\ndev.off()\nplot(x[,1:2],xlab=colnames(x)[1],ylab=colnames(x)[2], main=\"Scatter plot of first two samples\")\n\n\n\n",
+    "created" : 1494309040149.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2182962329",
+    "id" : "D9696A86",
+    "lastKnownWriteTime" : 1494360607,
+    "last_content_update" : 1494360607267,
+    "path" : "~/Desktop/idep/testDataClass.R",
+    "project_path" : "testDataClass.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
